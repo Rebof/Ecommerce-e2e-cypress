@@ -5,10 +5,10 @@ let user;
 let userEmail;
 
 beforeEach(() => {
-  cy.visit('/');
   cy.clearCookies();
   cy.clearAllLocalStorage();
-
+  cy.visit('/');
+  
   cy.url().should('include', "automationexercise");
   cy.title().should("eq", "Automation Exercise");
 
