@@ -180,7 +180,7 @@ describe("Product and cart functionality check", () => {
     });
   });
 
-  it.only("Verify the product quantity in the cart", () => {
+  it("Verify the product quantity in the cart", () => {
     const quantity = 5;
 
     cy.get("a[href='/product_details/1']").click();
@@ -207,4 +207,17 @@ describe("Product and cart functionality check", () => {
         expect(Number(text.trim())).to.eq(quantity);
       });
   });
+
+  it.only('remove the cart', () => {
+        cy.addtocart()
+        
+
+        cy.get("#product-1").should("be.visible")
+
+        cy.get(".cart_quantity_delete").click()
+
+        cy.get('b').should("contain", "Cart is empty!")
+
+
+    });
 });
