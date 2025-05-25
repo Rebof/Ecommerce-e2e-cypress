@@ -20,6 +20,7 @@ beforeEach(() => {
 describe("order checkout test cases", () => {
   it("checkout then register", () => {
     cy.addtocart();
+    cy.get(".btn.btn-default.check_out").click()// proceed to pay
     cy.get(".modal-body > :nth-child(2) > a > u").click(); // clicking he register
     cy.registerUser(user);
     cy.get(".shop-menu > .nav > :nth-child(3) > a").click(); //click cart
@@ -47,6 +48,7 @@ describe("order checkout test cases", () => {
     cy.get(".signup-form > h2").should("contain", "New User Signup!");
     cy.registerUser(user);
     cy.addtocart();
+    cy.get(".btn.btn-default.check_out").click()// proced to pay
     cy.verifyAddress("#address_delivery", user);
 
     cy.get(".form-control").type("GOOD PRODUCT");
@@ -81,6 +83,7 @@ describe("order checkout test cases", () => {
       );
 
       cy.addtocart();
+      cy.get(".btn.btn-default.check_out").click() // proceed to pay
 
       cy.verifyAddress("#address_delivery", user);
       cy.get(".form-control").type("GOOD PRODUCT");

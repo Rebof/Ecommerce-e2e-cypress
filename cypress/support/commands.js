@@ -127,7 +127,7 @@ Cypress.Commands.add("addtocart",()=>{
     cy.get(".modal-footer > .btn").click();
     cy.get(".shop-menu > .nav > :nth-child(3) > a").click();
     cy.url().should("include", "/view_cart");
-    cy.get(".btn.btn-default.check_out").click()
+    
     
 })
 
